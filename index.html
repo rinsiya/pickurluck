@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+ 
+    function flipCard(card) {
+    card.classList.toggle("flipped");
+  }
+
+  function removeCard(button) {
+    const card = button.parentElement;
+    const card1 = card.parentElement;
+    card1.remove();
+  }
+</script>
+<script>
+  let activeCard = null;
+
+  function openCard(card) {
+    activeCard = card;
+    const inner = card.querySelector(".card-inner");
+
+    inner.classList.add("popup");
+    document.querySelector(".overlay").style.display = "block";
+     document.getElementById("openSound").play();
+  }
+
+  function closePopup() {
+    if (activeCard) {
+      const inner = activeCard.querySelector(".card-inner");
+      inner.classList.remove("popup");
+      activeCard = null;
+    }
+    document.querySelector(".overlay").style.display = "none";
+    document.getElementById("closeSound").play();
+  }
+</script>
+
+</head>
+<body>
+ <div class="container">
+
+      <div class="card" onclick="openCard(this)">
+    <div class="card-inner"><span class="close-btn" onclick="removeCard(this)">×</span>
+         <div class="task-front">Task 1 </div>
+    <div class="task-back">Task</div>
+</div></div>
+      <div class="card" onclick="openCard(this)">
+    <div class="card-inner"><span class="close-btn" onclick="removeCard(this)">×</span>
+    <div class="task-front">Task 2 </div>
+    <div class="task-back">Task</div>
+</div></div>
+      <div class="card" onclick="openCard(this)">
+    <div class="card-inner"><span class="close-btn" onclick="removeCard(this)">×</span>
+    <div class="task-front">Task 3</div>
+    <div class="task-back">Task</div>
+</div></div>
+      <div class="card" onclick="openCard(this)">
+    <div class="card-inner"><span class="close-btn" onclick="removeCard(this)">×</span>
+    <div class="task-front"><button aria-label="Close">
+    <i class="fa fa-times" aria-hidden="true"></i>
+</button>Task 4</div>
+    <div class="task-back">Task</div>
+</div></div>
+      <div class="card" onclick="openCard(this)">
+    <div class="card-inner"><span class="close-btn" onclick="removeCard(this)">×</span>
+    <div class="task-front">Task 5</div>
+    <div class="task-back">Task</div>
+</div></div>
+      <div class="card" onclick="openCard(this)">
+    <div class="card-inner"><span class="close-btn" onclick="removeCard(this)">×</span>
+    <div class="task-front">Task 6</div>
+    <div class="task-back">Task</div>
+</div></div>
+      <div class="card" onclick="openCard(this)">
+    <div class="card-inner"><span class="close-btn" onclick="removeCard(this)">×</span>
+    <div class="task-front">Task 7</div>
+    <div class="task-back">Task</div>
+</div></div>
+      <div class="card" onclick="openCard(this)">
+    <div class="card-inner"><span class="close-btn" onclick="removeCard(this)">×</span>
+    <div class="task-front">Task 8</div>
+    <div class="task-back">Task</div>
+</div></div>
+      <div class="card" onclick="openCard(this)">
+    <div class="card-inner"><span class="close-btn" onclick="removeCard(this)">×</span>
+    <div class="task-front">Task 9</div>
+    <div class="task-back">Task </div>
+</div></div>
+
+
+
+ </div>   <div class="overlay" onclick="closePopup()"></div>
+ <audio id="openSound" src="https://www.soundjay.com/buttons/sounds/button-1.mp3"></audio>
+<audio id="closeSound" src="https://www.soundjay.com/buttons/sounds/button-4.mp3"></audio>
+
+</body>
+</html>
